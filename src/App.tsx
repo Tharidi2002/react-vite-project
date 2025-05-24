@@ -1,16 +1,18 @@
 import './App.css';
-import { MainContent } from "./view/Common/MainContent/MainContent";
-import { Footer } from "./view/Common/Footer/Footer";
-import {Navbar} from "./view/Common/navbar/Navbar.tsx";
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {Login} from "./view/pages/Login/Login.tsx";
+import {DefaultLayout} from "./view/Common/DefaultLayout/DefaultLayout.tsx";
+// import {DefaultLayout} from "./view/Common/DefaultLayout/DefaultLayout.tsx";
 
 function App() {
     return (
         <div className="app-container">
            <BrowserRouter>
-               <Navbar />
-               <MainContent />
-               <Footer />
+               {/*<DefaultLayout/>*/}
+               <Routes>
+                   <Route path="/*" element={<DefaultLayout />}></Route>
+                   <Route path="/login" element={<Login />}></Route>
+               </Routes>
            </BrowserRouter>
         </div>
     );
