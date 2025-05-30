@@ -5,7 +5,7 @@ import logo from '../../../assets/logo.png';
 
 export const Navbar = () => {
     return (
-        <nav className="navbar">
+        <nav className="navbar bg-">
             <div className="navbar-container">
                 <div className="navbar-logo">
                     <img src={logo} alt="logo"/>
