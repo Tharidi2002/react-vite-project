@@ -1,4 +1,5 @@
-/* Contact.css */
+/*
+!* Contact.css *!
 .form-container {
     max-width: 600px;
     margin: 2rem auto;
@@ -94,7 +95,7 @@
     transform: translateY(0);
 }
 
-/* Error states */
+!* Error states *!
 .form-group.error input,
 .form-group.error textarea {
     border-color: #e74c3c;
@@ -112,7 +113,7 @@
     display: block;
 }
 
-/* Responsive design */
+!* Responsive design *!
 @media (max-width: 768px) {
     .form-container {
         margin: 1rem;
@@ -132,4 +133,4 @@
     .form-group textarea {
         padding: 0.8rem 1rem;
     }
-}
+}*/
