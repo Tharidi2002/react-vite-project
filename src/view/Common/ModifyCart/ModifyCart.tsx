@@ -1,48 +1,44 @@
 import { useEffect, useState } from "react";
 import type { CartItem } from "../../../model/CartItem.ts";
-import type { ProductData } from "../../../model/ProductData.ts";
-
-export const itemsList: CartItem[] = [];
 
 interface ModifyCartProps {
-    data: { product: ProductData }; // Made required since you're using it in useEffect
+    data: any
 }
 
+export const itemsList:CartItem[] = [];
 export function ModifyCart({ data }: ModifyCartProps) {
-    const [itemCount, setItemCount] = useState(1);
+    const [itemCount, setItemCount]
+        = useState(1);
 
     useEffect(() => {
-        if (data?.product) {
-            const existingItem = itemsList.findIndex(
-                item => item.product.id === data.product.id
-            );
 
-            if (existingItem >= 0) {
-                // Update existing item count
-                itemsList[existingItem].itemCount = itemCount;
-            } else {
-                // Add new item if it doesn't exist
-                itemsList.push({
-                    product: data.product,
-                    itemCount: itemCount
-                });
-            }
+        const existingItem = itemsList
+            .find(item =>
+                item.product.id === data.product.id);
+        if (existingItem) {
+            existingItem.itemCount = itemCount;
+        } else {
+            itemsList.push({
+                product: data.product,
+                itemCount: itemCount
+            });
         }
-    }, [itemCount, data?.product]); // Added dependencies
-
+        console.log(itemsList);
+    }, [itemCount, data])
     const decreaseItemCount = () => {
-        setItemCount(prevValue => {
-            if (prevValue > 1) {
-                return prevValue - 1;
-            }
-            alert("Minimum quantity is 1");
-            return prevValue;
-        });
-    };
-
+        setItemCount(prevValue =>
+            prevValue > 1
+                ? prevValue - 1
+                : (alert("Item count can't " +
+                        "be less than 1"),
+                        prevValue
+                )
+        )
+    }
     const increaseItemCount = () => {
-        setItemCount(prevValue => prevValue + 1);
-    };
+        setItemCount(prvCount =>
+            prvCount + 1)
+    }
 
     return (
         <div className="flex items-center justify-between w-full max-w-[120px] border border-gray-300 rounded-md overflow-hidden">
