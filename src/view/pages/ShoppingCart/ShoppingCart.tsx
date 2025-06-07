@@ -1,4 +1,4 @@
-import type {CartItem} from "../../../model/CartItem.ts";
+/*import type {CartItem} from "../../../model/CartItem.ts";
 
 interface ShoppingCartProps {
     itemsList: CartItem[];
@@ -45,9 +45,8 @@ export function ShoppingCart({itemsList} : ShoppingCartProps) {
             </div>
         </div>
     );
-}
+}*/
 
-/*
 
 import type { CartItem } from "../../../model/CartItem.ts";
 
@@ -104,7 +103,7 @@ export function ShoppingCart({ itemsList }: ShoppingCartProps) {
                                     Total
                                 </th>
                                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    {/!* Empty for actions column *!/}
+                                    {/* Empty for actions column */}
                                 </th>
                             </tr>
                             </thead>
@@ -170,4 +169,4 @@ export function ShoppingCart({ itemsList }: ShoppingCartProps) {
             </div>
         </div>
     );
-}*/
+}

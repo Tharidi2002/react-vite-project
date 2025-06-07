@@ -1,16 +1,8 @@
-/*
-export function Login() {
-    return (
-        <>
-        <h1>Login page............</h1>
-        </>
-    );
-}
- */
-
-
+import {useNavigate} from "react-router-dom";
 
 export function Login() {
+    const navigate = useNavigate();
+
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-50">
             <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
@@ -62,6 +54,11 @@ export function Login() {
                     >
                         Sign In
                     </button>
+
+                    <div className='mt-1 mb-4'>
+                        <button onClick={() => navigate("/")} className="text-sm font-medium text-purple-600 hover:text-purple-500">Go Back</button>
+                    </div>
+
                 </form>
 
                 <div className="mt-6">
