@@ -43,7 +43,7 @@ export function Product({data}: ProductProps) {
 
 
             {
-                isActive ? (<ModifyCart/>) : (
+                isActive ? (<ModifyCart data={{product: data}}/>) : (
                     <button onClick={addToCart} className="mt-auto w-full py-2 px-4 bg-purple-600 hover:bg-purple-700 text-white rounded-md transition-colors flex items-center justify-center"> Add To Cart </button>
                 )
             }
