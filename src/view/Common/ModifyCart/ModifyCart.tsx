@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import type { CartItem } from "../../../model/CartItem.ts";
 
 interface ModifyCartProps {
-    data: any
+    data: any;
 }
 
 export const itemsList:CartItem[] = [];
