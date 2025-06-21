@@ -2,6 +2,9 @@
 import {useState} from "react";
 import {ModifyCart} from "../ModifyCart/ModifyCart.tsx";
 import type {ProductData} from "../../../model/ProductData.ts";
+import {useDispatch} from "react-redux";
+import type {AppDispatch} from "../../../store/store.ts";
+import {addItemTOCart} from "../../../slices/cartSlice.ts";
 
 type ProductProps = {
     data: ProductData
@@ -12,12 +15,13 @@ const images : Record<string, string> = import.meta.glob('../../../assets/produc
 
 
 export function Product({data}: ProductProps) {
-    // console.log(images);
-    console.log(`../../../assets/products/${data.image}`)
     const image:string = images[`../../../assets/products/${data.image}`]
+
+    const dispatch = useDispatch<AppDispatch>();
 
     const [isActive, setIsActive] = useState(false);
     const addToCart = () => {
+        dispatch(addItemTOCart(data));
         setIsActive(true);
     }
 
@@ -37,7 +41,9 @@ export function Product({data}: ProductProps) {
 
             {
                 isActive ? (<ModifyCart data={{product: data}}/>) : (
-                    <button onClick={addToCart} className="mt-auto w-full py-2 px-4 bg-purple-600 hover:bg-purple-700 text-white rounded-md transition-colors flex items-center justify-center"> Add To Cart </button>
+                    <button onClick={addToCart} className="mt-auto w-full py-2 px-4 bg-purple-600 hover:bg-purple-700 text-white rounded-md transition-colors flex items-center justify-center">
+                        Add To Cart
+                    </button>
                 )
             }
         </div>
