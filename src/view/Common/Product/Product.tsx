@@ -49,3 +49,5 @@ export function Product({data}: ProductProps) {
         </div>
     );
 }
+
+// in this case i cannot resol them
